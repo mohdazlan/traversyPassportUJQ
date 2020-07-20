@@ -2,11 +2,11 @@ const express = require('express')
 const router = express.Router()
 
 router.get('/login',(req,res)=>{
-    res.send('login page')
+    res.render('login')
 }) 
 
 router.get('/register',(req,res)=>{
-    res.send('register page')
+    res.render('register')
 }) 
 
 module.exports = router

@@ -2,6 +2,7 @@ const express = require('express')
 const expressLayouts = require('express-ejs-layouts')
 const path = require('path');
 const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
 
 const app = express()
 
@@ -21,6 +22,9 @@ app.set('views', __dirname + '/views')
 // Static Files
 app.use(express.static('public'));
 app.use(express.static(path.join(__dirname, '/public/')))
+
+// Body Parser
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 }))
 
 const PORT = process.env.PORT || 5000
 
